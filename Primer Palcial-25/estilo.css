@@ -1,0 +1,687 @@
+@charset "UTF-8";
+/*--------------------------------GENERALES--------------------------------*/
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Cambio: Añadido para evitar problemas con padding y bordes */
+    list-style: none;
+    text-decoration: none;
+    font-family: "Source Sans 3", sans-serif; /* Cambio: Corregido 'serif' a 'sans-serif' */
+}
+
+/* Header */
+.header {
+    width: 100%; /* Cambio: 'auto' reemplazado por '100%' para consistencia */
+    min-height: 300px; /* Cambio: Reducido de 500px para mejor adaptabilidad */
+    background-image: url(IMG/Inicio/Fondo-03.jpg);
+    background-size: cover; /* Cambio: Añadido para que la imagen de fondo se ajuste */
+    background-position: center;
+    position: relative;
+    display: flex; /* Cambio: Usar flexbox para alinear contenido */
+    flex-direction: column;
+}
+
+.iconoLogo {
+    width: 70px; /* Cambio: Simplificado, 'auto' no es necesario */
+    height: auto;
+    margin: 15px 0 0 20px;
+    z-index: 2;
+}
+
+.fotografo {
+    width: 100%; /* Cambio: Ajustado para ser responsivo */
+    max-width: 500px; /* Cambio: Límite máximo para evitar imágenes demasiado grandes */
+    height: auto; /* Cambio: Asegura proporciones correctas */
+    z-index: 1;
+    margin: 0 auto; /* Cambio: Centrado en lugar de posicionamiento absoluto */
+}
+
+/* Menú */
+nav {
+    width: 100%; /* Cambio: Ajustado para ocupar todo el ancho en móviles */
+    margin: 0 auto;
+}
+
+/* Cambio: Ocultar menú por defecto en móviles y usar hamburguesa */
+.menu-toggle {
+    display: none; /* Checkbox oculto */
+}
+
+.hamburger {
+    display: none; /* Oculta hamburguesa por defecto, se activa en media query */
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: #fff;
+    z-index: 5;
+}
+
+nav.menu > ul {
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column; /* Cambio: Vertical en móviles */
+    align-items: center;
+}
+
+nav.menu > ul > li {
+    font-size: 18px;
+    font-weight: bold; /* Cambio: 'font-style: bold' corregido a 'font-weight' */
+    margin: 10px 0;
+}
+
+nav.menu > ul > li > a {
+    color: #ffffff;
+    padding: 10px;
+    display: block; /* Cambio: Mejora la interacción en móviles */
+}
+
+nav.menu ul li:hover {
+    background-color: #184347;
+    transform: scale(1.05);
+    transition: all 0.2s ease; /* Cambio: Simplificado '-webkit-transition' */
+    border-radius: 7px;
+}
+
+/* Contacto */
+.contacto {
+    width: 60px; /* Cambio: Reducido para móviles */
+    height: 60px;
+    position: fixed;
+    bottom: 20px; /* Cambio: Ajustado para no solaparse */
+    right: 20px;
+    z-index: 10; /* Cambio: Aumentado para visibilidad */
+}
+
+.contacto img {
+    width: 100%;
+    height: auto;
+}
+
+.contacto img:hover {
+    transform: rotate(360deg);
+    transition: all 0.5s ease;
+}
+
+.contacto:hover {
+    border-radius: 20px;
+    background-color: #f0f0f059;
+    transform: scale(1.1);
+    transition: all 0.2s ease;
+}
+
+/* Pie */
+.pie {
+    width: 100%; /* Cambio: Asegurar ancho completo */
+    min-height: 250px; /* Cambio: Ajustado para contenido dinámico */
+    background-color: #1f1f1f;
+    padding: 20px; /* Cambio: Añadido para espaciado interno */
+    display: flex; /* Cambio: Flexbox para alinear contenido */
+    flex-direction: column;
+    align-items: center;
+}
+
+.pieIMG {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.pieIMG img {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+}
+
+.pietexto {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.pietexto p, .pietexto a {
+    color: #ffffff;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.pieimg {
+    width: 150px; /* Cambio: Reducido para móviles */
+    height: 150px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.pieimg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cambio: Añadido para ajustar imagen QR */
+}
+
+.social {
+    width: 100%;
+    min-height: 60px;
+    background-color: #184347;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Cambio: Reemplaza posicionamiento absoluto */
+    padding: 10px;
+}
+
+.social div {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+}
+
+.social div:hover {
+    transform: rotate(360deg);
+    transition: all 0.5s ease;
+}
+
+.social .fab:hover {
+    background-color: rgb(0, 153, 255);
+    box-shadow: 0 0 10px rgb(0, 153, 255);
+}
+
+.social .ins:hover {
+    background: linear-gradient(#FEDA77, #DD2A7B, #8134AF, #515BD4);
+    box-shadow: 0 0 10px #515BD4;
+}
+
+.social .twi:hover {
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+.social .you:hover {
+    background-color: rgb(255, 0, 0);
+    box-shadow: 0 0 10px rgb(255, 0, 0);
+}
+
+.social img {
+    width: 100%;
+    height: 100%;
+}
+
+/*--------------------------------INICIO--------------------------------*/
+/* Sección 1: Bienvenida */
+.bienvenida { /* Cambio: Corregido 'bienbenida' */
+    width: 100%;
+    min-height: 400px; /* Cambio: Reducido y ajustado para flexibilidad */
+    padding: 20px;
+    display: flex; /* Cambio: Flexbox para mejor disposición */
+    flex-direction: column;
+    align-items: center;
+}
+
+.bienvenida .texto {
+    width: 100%;
+    max-width: 600px; /* Cambio: Límite para evitar desbordes */
+    margin: 20px 0;
+    font-weight: 600;
+    text-align: center;
+}
+
+.bienvenida .texto p {
+    color: #070707;
+    font-size: 1.5rem; /* Cambio: Usar rem para escalabilidad */
+}
+
+.bienvenida .img1, .bienvenida .img2 {
+    width: 100%;
+    max-width: 300px; /* Cambio: Ajustado para móviles */
+    height: auto;
+    margin: 10px 0;
+}
+
+.bienvenida .img1 img, .bienvenida .img2 img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.bienvenida .texto1 {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px 0;
+    font-weight: 400;
+    text-align: center;
+}
+
+.bienvenida .texto1 p {
+    color: #070707;
+    font-size: 1.2rem;
+}
+
+/* Sección 2: Carrusel */
+.carrusel {
+    width: 100%;
+    min-height: 300px; /* Cambio: Reducido para móviles */
+    background-color: antiquewhite;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 20px;
+    animation: slide 20s infinite;
+}
+
+@keyframes slide {
+    0% { background-image: url(IMG/Inicio/slider-06.jpg); }
+    50% { background-image: url(IMG/Inicio/slider-07.jpg); }
+    75% { background-image: url(IMG/Inicio/slider-08.jpg); }
+    100% { background-image: url(IMG/Inicio/slider-09.jpg); }
+}
+
+.carrusel button {
+    background-color: #070707;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    padding: 10px 20px;
+    opacity: 0.85;
+    cursor: pointer;
+}
+
+.carrusel button span {
+    font-size: 1rem; /* Cambio: Ajustado para escalabilidad */
+    font-weight: 400;
+}
+
+.carrusel button:hover {
+    background-color: #184347;
+    transform: scale(1.05);
+    transition: all 0.2s ease;
+    opacity: 1;
+}
+
+/* Sección 3: Equipo */
+.equipo {
+    width: 100%;
+    min-height: 400px; /* Cambio: Ajustado para contenido dinámico */
+    padding: 20px;
+    display: flex; /* Cambio: Flexbox para disposición */
+    flex-direction: column;
+    align-items: center;
+}
+
+.equipo h2 {
+    font-weight: 900;
+    font-size: 2rem; /* Cambio: Ajustado para escalabilidad */
+    color: #000000;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.equipo div {
+    width: 200px; /* Cambio: Reducido para móviles */
+    height: 200px;
+    margin: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.equipo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cambio: Añadido para ajustar imágenes */
+}
+
+.equipo p {
+    color: #EAD9D0;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 10px;
+    text-shadow: 1px 2px #184347dd;
+}
+
+.equipo div:hover {
+    transform: scale(1.05);
+    transition: all 0.5s ease;
+    box-shadow: 0 0 5px #02383d86;
+}
+
+.equipo .cont1, .equipo .cont2, .equipo .cont3, .equipo .cont4 {
+    position: relative; /* Cambio: Simplificado, elimina márgenes absolutos */
+}
+
+/* Sección 4: Servicios */
+.servicio {
+    width: 100%;
+    min-height: 300px; /* Cambio: Ajustado para móviles */
+    background-image: url(IMG/Inicio/familia.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h2 {
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 2.5rem; /* Cambio: Ajustado para escalabilidad */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.icono {
+    width: 100%;
+    max-width: 800px; /* Cambio: Límite para pantallas grandes */
+    display: flex;
+    flex-wrap: wrap; /* Cambio: Permite disposición dinámica */
+    justify-content: center;
+    gap: 20px;
+}
+
+.icono div {
+    width: 100px; /* Cambio: Reducido para móviles */
+    height: auto;
+}
+
+.icono img {
+    width: 100%;
+    height: auto;
+}
+
+.icono img:hover {
+    background-color: #000000a2;
+    border-radius: 15px;
+    transform: scale(1.05);
+    transition: all 0.5s ease;
+}
+
+.icon1, .icon2, .icon3, .icon4, .icon5 {
+    position: relative; /* Cambio: Simplificado, elimina márgenes absolutos */
+}
+
+/*--------------------------------EVENTOS--------------------------------*/
+.titulo-boda, .titulo-cumpleaños, .titulo-fiestas, .titulo-persona, .titulo-grupo {
+    width: 90%; /* Cambio: Ajustado para móviles */
+    max-width: 300px; /* Cambio: Límite para pantallas grandes */
+    height: 60px;
+    margin: 20px auto;
+    background-color: #000000;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.titulo-boda h3, .titulo-cumpleaños h3, .titulo-fiestas h3, .titulo-persona h3, .titulo-grupo h3 {
+    color: #ffffff;
+    font-size: 1.8rem; /* Cambio: Ajustado para escalabilidad */
+    font-weight: bold;
+    line-height: 60px;
+}
+
+.boda, .cumpleaños, .fiestas, .persona, .grupo {
+    width: 100%;
+    min-height: 300px; /* Cambio: Ajustado para móviles */
+    margin: 20px 0;
+    display: flex;
+    overflow-x: auto; /* Cambio: Mejor control de scroll */
+    padding: 10px;
+    gap: 20px;
+}
+
+.boda::-webkit-scrollbar, .cumpleaños::-webkit-scrollbar, .fiestas::-webkit-scrollbar, 
+.persona::-webkit-scrollbar, .grupo::-webkit-scrollbar {
+    height: 8px;
+    background-color: #ffffff;
+}
+
+.boda::-webkit-scrollbar-thumb, .cumpleaños::-webkit-scrollbar-thumb, 
+.fiestas::-webkit-scrollbar-thumb, .persona::-webkit-scrollbar-thumb, 
+.grupo::-webkit-scrollbar-thumb {
+    background-color: #ddddddb8;
+    border-radius: 20px;
+}
+
+.boda .foto, .cumpleaños .foto, .fiestas .foto, .persona .foto, .grupo .foto {
+    display: flex;
+    gap: 20px;
+}
+
+.boda .foto .elemento, .cumpleaños .foto .elemento, .fiestas .foto .elemento, 
+.persona .foto .elemento, .grupo .foto .elemento {
+    width: 300px; /* Cambio: Reducido para móviles */
+    height: 400px;
+    margin: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px #000000d7;
+    flex-shrink: 0; /* Cambio: Evita que las imágenes se deformen */
+}
+
+.boda .foto .elemento img, .cumpleaños .foto .elemento img, .fiestas .foto .elemento img, 
+.persona .foto .elemento img, .grupo .foto .elemento img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cambio: Ajusta imágenes sin distorsión */
+}
+
+.boda .foto .elemento:hover, .cumpleaños .foto .elemento:hover, .fiestas .foto .elemento:hover, 
+.persona .foto .elemento:hover, .grupo .foto .elemento:hover {
+    box-shadow: 0 0 5px #000000d7;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+/*--------------------------------EQUIPO--------------------------------*/
+.titulo-equipo, .contenedor-equipo {
+    width: 100%;
+    max-width: 1200px; /* Cambio: Límite para pantallas grandes */
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.titulo-equipo div, .contenedor-equipo div {
+    width: 280px; /* Cambio: Ajustado para móviles */
+    height: 300px;
+    margin: 10px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.titulo-equipo .contenedor1 p {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 80px;
+    color: #ffffff;
+    position: absolute;
+    z-index: 2;
+}
+
+.titulo-equipo .contenedor1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+}
+
+.contenedor-equipo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contenedor-equipo p {
+    color: #ffffff;
+    font-size: 1rem;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.contenedor-equipo .redes {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.contenedor-equipo .redes div {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+}
+
+.contenedor-equipo .redes div:hover {
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+.contenedor-equipo .redes img {
+    width: 100%;
+    height: 100%;
+}
+
+/*--------------------------------MEDIA QUERIES--------------------------------*/
+/* Móviles (base ya definida arriba) */
+
+/* Tablets (≥768px) */
+@media (min-width: 768px) {
+    .header {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .hamburger {
+        display: none; /* Oculta hamburguesa en tablets */
+    }
+
+    nav.menu > ul {
+        flex-direction: row; /* Menú horizontal */
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    .fotografo {
+        max-width: 400px;
+        margin: 0;
+    }
+
+    .bienvenida {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .bienvenida .texto, .bienvenida .texto1 {
+        width: 45%;
+        text-align: left;
+    }
+
+    .bienvenida .img1, .bienvenida .img2 {
+        width: 45%;
+        max-width: 350px;
+    }
+
+    .equipo {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .equipo div {
+        width: 220px;
+    }
+
+    .servicio {
+        min-height: 400px;
+    }
+
+    .icono {
+        flex-wrap: nowrap;
+    }
+
+    .pie {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .pieimg {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+/* Escritorios (≥1024px) */
+@media (min-width: 1024px) {
+    .header {
+        min-height: 400px;
+        padding: 30px;
+    }
+
+    .iconoLogo {
+        width: 100px;
+    }
+
+    nav.menu > ul {
+        gap: 20px;
+    }
+
+    nav.menu > ul > li > a {
+        font-size: 1.2rem;
+    }
+
+    .fotografo {
+        max-width: 500px;
+    }
+
+    .bienvenida {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .bienvenida .texto, .bienvenida .texto1 {
+        width: 30%;
+    }
+
+    .bienvenida .img1, .bienvenida .img2 {
+        width: 30%;
+        max-width: 400px;
+    }
+
+    .carrusel {
+        min-height: 400px;
+    }
+
+    .equipo {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .equipo div {
+        width: 250px;
+    }
+
+    .servicio {
+        min-height: 500px;
+    }
+
+    .icono div {
+        width: 150px;
+    }
+
+    .boda .foto .elemento, .cumpleaños .foto .elemento, .fiestas .foto .elemento, 
+    .persona .foto .elemento, .grupo .foto .elemento {
+        width: 400px;
+        height: 500px;
+    }
+}
